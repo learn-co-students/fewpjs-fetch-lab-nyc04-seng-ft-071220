@@ -1,5 +1,7 @@
 function fetchBooks() {
-
+ return fetch('https://anapioficeandfire.com/api/books')
+  .then(resp => resp.json())
+  .then(json => renderBooks(json));
 }
 
 function renderBooks(books) {
@@ -11,6 +13,11 @@ function renderBooks(books) {
   })
 }
 
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
   fetchBooks()
 })
+
+
+
+// in the empty function "fetch" from line 44 this line goes into the function, with the return in front of the .then
+// this should list all the titles of the books by removing the console.log and replacing it with "render books" in the secoung.then
